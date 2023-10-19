@@ -1,0 +1,315 @@
+.ffz--link-preview {
+	a& {
+		&, &:focus, &:hover {
+			text-decoration: none;
+			color: unset;
+		}
+	}
+
+	a {
+		text-decoration: none;
+
+		&:focus, &:hover {
+			text-decoration: underline;
+		}
+	}
+
+	img {
+		display: unset;
+	}
+}
+
+.ffz-pill {
+	@apply text-xs px-2 bg-black/75 text-white dark:bg-white/75 dark:text-black rounded-lg;
+}
+
+a.ffz-interactable {
+	@apply bg-neutral-50 dark:bg-neutral-950;
+
+	&:hover {
+		@apply bg-neutral-200 dark:bg-neutral-800;
+	}
+
+	&, &:focus, &:hover {
+		text-decoration: none;
+	}
+}
+
+.ffz--rich-header--background {
+	position: relative;
+
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+
+	.ffz--rich-header__background {
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0.5;
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+}
+
+
+.ffz--rich-player {
+	cursor: pointer;
+
+	> * {
+		width: 100%;
+	}
+}
+
+
+.ffz--header-image {
+	height: 3rem;
+	max-width: 25%;
+
+	figure {
+		line-height: 3rem;
+		font-size: 1.5rem;
+	}
+
+	img {
+		vertical-align: top;
+		object-fit: contain;
+		height: 100%;
+	}
+
+	&.ffz--header-aspect {
+		img {
+			object-fit: cover;
+			width: 100%;
+		}
+	}
+}
+
+
+.ffz--compact-header {
+	.ffz--header-image {
+		height: 1.5rem;
+
+		figure {
+			line-height: 1.5rem;
+			font-size: 0.75rem;
+		}
+	}
+}
+
+
+
+.ffz--rich-gallery {
+	position: relative;
+	text-align: center;
+	max-height: 350px;
+
+	display: grid;
+	grid-column: 1/2;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 4px;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.ffz--rich-gallery[data-items="1"] {
+	display: flex;
+	justify-content: center;
+}
+
+.ffz--rich-gallery[data-items="1"] .ffz--gallery-column {
+	width: 100%;
+}
+
+
+.ffz--rich-gallery .ffz--gallery-column {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	margin-top: -4px;
+	max-height: calc(350px + 4px);
+}
+
+.ffz--rich-gallery .ffz--gallery-column:only-child {
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+.ffz--rich-gallery .ffz--gallery-column:only-child img,
+.ffz--rich-gallery .ffz--gallery-column:only-child video {
+	object-fit: contain;
+}
+
+.ffz--rich-gallery .ffz--gallery-column:only-child .ffz-aspect img,
+.ffz--rich-gallery .ffz--gallery-column:only-child .ffz-aspect video {
+	object-fit: cover;
+}
+
+.ffz--rich-gallery .ffz--gallery-column > * {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	margin-top: 4px;
+}
+
+.ffz--rich-gallery .ffz--gallery-column[data-items="2"] > * {
+	min-height: calc(50% - 2px);
+}
+
+.ffz--rich-gallery .ffz--gallery-column[data-items="2"] > * img,
+.ffz--rich-gallery .ffz--gallery-column[data-items="2"] > * video {
+	max-height: calc(calc(350px + 4px) / 2);
+}
+
+.ffz--rich-gallery .ffz--gallery-column[data-items="1"] > * {
+	min-height: 100%;
+}
+
+.ffz--rich-gallery .ffz--gallery-column[data-items="1"] > * img,
+.ffz--rich-gallery .ffz--gallery-column[data-items="1"] > * video {
+	max-height: calc(350px + 4px);
+}
+
+.ffz--rich-gallery .ffz--gallery-column img,
+.ffz--rich-gallery .ffz--gallery-column video {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.ffz-aspect {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.ffz-aspect > :not(.ffz-aspect__spacer) {
+	position: absolute;
+	left: 0;
+	min-height: 100%;
+	width: 100%;
+}
+
+.ffz-aspect--overflow {
+	overflow: visible
+}
+
+.ffz-aspect--align-top > :not(.ffz-aspect__spacer) {
+	top: 0;
+}
+
+.ffz-aspect--align-center > :not(.ffz-aspect__spacer) {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.ffz-aspect--align-bottom > :not(.ffz-aspect__spacer) {
+	bottom: 0;
+}
+
+.ffz--line-clamp {
+	display: -webkit-box;
+	-webkit-line-clamp: var(--ffz-lines);
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.ffz--overlay {
+	position: relative;
+}
+.ffz--overlay > :not(.ffz--overlay__content) {
+	position: absolute;
+	z-index: 1;
+	background-color: rgba(0,0,0,0.5);
+	color: #fff;
+	padding: 0 0.5rem;
+	border-radius: 4px;
+}
+.ffz--overlay .ffz--overlay__content {
+	width: 100%;
+	height: 100%;
+}
+.ffz--overlay .ffz--overlay__bit {
+	max-width: calc(100% - 1rem);
+}
+.ffz--overlay .ffz--overlay__bit[data-side="top-left"], .ffz--overlay .ffz--overlay__bit[data-side="top"], .ffz--overlay .ffz--overlay__bit[data-side="top-right"] {
+	top: 0.5rem;
+}
+.ffz--overlay .ffz--overlay__bit[data-side="bottom-left"], .ffz--overlay .ffz--overlay__bit[data-side="bottom"], .ffz--overlay .ffz--overlay__bit[data-side="bottom-right"] {
+	bottom: 0.5rem;
+}
+.ffz--overlay .ffz--overlay__bit[data-side="top-left"], .ffz--overlay .ffz--overlay__bit[data-side="left"], .ffz--overlay .ffz--overlay__bit[data-side="bottom-left"] {
+	left: 0.5rem;
+}
+.ffz--overlay .ffz--overlay__bit[data-side="top-right"], .ffz--overlay .ffz--overlay__bit[data-side="right"], .ffz--overlay .ffz--overlay__bit[data-side="bottom-right"] {
+	right: 0.5rem;
+}
+.ffz--overlay .ffz--overlay__bit[data-side="left"], .ffz--overlay .ffz--overlay__bit[data-side="right"] {
+	top: 50%;
+	transform: translateY(-50%);
+}
+.ffz--overlay .ffz--overlay__bit[data-side="top"], .ffz--overlay .ffz--overlay__bit[data-side="bottom"] {
+	left: 50%;
+	transform: translateX(-50%);
+}
+.ffz--overlay .ffz--overlay__bit[data-side="center"] {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.ffz--rich-gallery .ffz--overlay .ffz--overlay__bit[data-side="top-left"], .ffz--rich-gallery .ffz--overlay .ffz--overlay__bit[data-side="top"], .ffz--rich-gallery .ffz--overlay .ffz--overlay__bit[data-side="top-right"] {
+	top: 1rem;
+}
+.ffz--rich-gallery .ffz--overlay .ffz--overlay__bit[data-side="bottom-left"], .ffz--rich-gallery .ffz--overlay .ffz--overlay__bit[data-side="bottom"], .ffz--rich-gallery .ffz--overlay .ffz--overlay__bit[data-side="bottom-right"] {
+	bottom: 1rem;
+}
+
+
+.ffz--fields {
+	display: flex;
+	margin-top: -0.5rem;
+	margin-left: -0.5rem;
+	flex-flow: row wrap;
+}
+.ffz--fields .ffz--field {
+	margin-top: 0.5rem;
+	margin-left: 0.5rem;
+	width: 100%;
+}
+.ffz--fields .ffz--field-inline {
+	flex: 1;
+	width: unset;
+	min-width: 150px;
+}
+.ffz--fields .ffz--field-icon {
+	position: relative;
+	padding-left: 1.5rem;
+}
+.ffz--field__icon {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+}
+
+.ffz-interactable { color: inherit !important; }
+
+.ffz--rich-gallery:not(:first-child), .ffz--compact-header:not(:first-child) {
+	margin-top: 0.5rem;
+}
+
+.ffz--rich-gallery:not(:last-child), .ffz--compact-header:not(:last-child) {
+	margin-bottom: 0.5rem;
+}
