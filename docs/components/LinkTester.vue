@@ -170,7 +170,7 @@ import LinkPreview from './LinkPreview.vue';
 import { debounce, formatExamples, highlightJson } from '../lib/utilities';
 import { LINK_DATA_HOSTS, STOCK_URLS } from '../lib/constants';
 
-import { normalizeResponse } from '../../../rich-token-page/src/rich_tokens/utilities';
+import { normalizeResponse } from '../lib/rich_tokens/utilities'; // '../../../rich-token-page/src/rich_tokens/utilities';
 
 
 export default {

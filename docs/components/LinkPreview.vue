@@ -1,8 +1,8 @@
 <script>
 
 import { h } from 'vue';
-import { render } from '../../../rich-token-page/src/rich_tokens/render';
-import { normalizeResponse } from '../../../rich-token-page/src/rich_tokens/utilities';
+import { render } from '../lib/rich_tokens/render'; //'../../../rich-token-page/src/rich_tokens/render';
+import { normalizeResponse } from '../lib/rich_tokens/utilities'; // '../../../rich-token-page/src/rich_tokens/utilities';
 
 
 export default {
