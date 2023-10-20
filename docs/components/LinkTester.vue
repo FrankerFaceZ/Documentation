@@ -45,7 +45,8 @@
 					</select>
 					<input
 						ref="text"
-						class="w-full rounded-b-lg p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 border-t-0"
+						type="text"
+						class="w-full rounded-b-lg mt-px p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 border-t-0"
 						@blur="updateText"
 						@input="onTextChange"
 					/>
@@ -64,7 +65,10 @@
 						:disabled="examples_loading"
 						@click="updateExamples"
 					>
-						<i class="fa fa-refresh" />
+						<i
+							class="fa fa-refresh"
+							:class="{'animate-spin': examples_loading}"
+						/>
 					</button>
 
 					<div class="pointer-events-none w-max absolute opacity-0 transition-opacity group-hover:opacity-100 px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm dark:bg-gray-300 dark:text-black top-full right-0">
@@ -107,8 +111,8 @@
 
 		</div>
 
-		<div class="flex my-4 w-full">
-			<label class="w-20 shrink-0 my-2">Short</label>
+		<div class="md:flex my-4 w-full">
+			<label class="block w-20 shrink-0 my-2">Short</label>
 
 			<LinkPreview
 				class="w-full min-w-0"
@@ -122,8 +126,8 @@
 			/>
 		</div>
 
-		<div class="flex my-4 w-full">
-			<label class="w-20 shrink-0 my-2">Mid</label>
+		<div class="md:flex my-4 w-full">
+			<label class="block w-20 shrink-0 my-2">Mid</label>
 
 			<LinkPreview
 				class="w-full min-w-0"
@@ -137,8 +141,8 @@
 			/>
 		</div>
 
-		<div class="flex my-4 w-full">
-			<label class="w-20 shrink-0 my-2">Full</label>
+		<div class="md:flex my-4 w-full">
+			<label class="block w-20 shrink-0 my-2">Full</label>
 
 			<LinkPreview
 				class="w-full min-w-0"
@@ -152,8 +156,15 @@
 			/>
 		</div>
 
-		<div class="flex my-4 w-full">
-			<label class="w-20 shrink-0 my-2">Raw</label>
+		<div class="md:flex my-4 w-full">
+			<label class="block md:w-20 shrink-0 my-2">
+				Raw
+				<small
+					class="text-xs font-light opacity-75 md:block"
+				>
+					{{$formatNumber(bytes)}} bytes
+				</small>
+			</label>
 
 			<div class="ffz--link-preview min-w-0 w-full border p-2 rounded-lg dark:bg-neutral-900 dark:text-white dark:border-neutral-500 bg-neutral-100 drop-shadow-md font-mono text-xs break-words whitespace-pre-wrap overflow-y-scroll h-96">
 				<pretty-json :value="data" />
@@ -166,7 +177,6 @@
 <script>
 
 import { Button, Select, Toggle } from 'flowbite-vue';
-import LinkPreview from './LinkPreview.vue';
 import { debounce, formatExamples, highlightJson } from '../lib/utilities';
 import { LINK_DATA_HOSTS, STOCK_URLS } from '../lib/constants';
 
@@ -179,7 +189,6 @@ export default {
 		Button,
 		Select,
 		Toggle,
-		LinkPreview,
 		'pretty-json': (props, context) => {
 			const val = props.value ?? null;
 			return highlightJson(val, true);
@@ -232,6 +241,12 @@ export default {
 			} catch(err) {
 				return null;
 			}
+		},
+
+		bytes() {
+			if ( this.data == null )
+				return 0;
+			return JSON.stringify(this.data).length
 		}
 	},
 

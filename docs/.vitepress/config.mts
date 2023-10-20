@@ -4,10 +4,20 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
 	title: "FrankerFaceZ",
 	description: "Developer Documentation",
+	head: [
+		[
+			'link',
+			{
+				rel: 'stylesheet',
+				href: 'https://use.fontawesome.com/releases/v6.4.2/css/all.css'
+			}
+		]
+	],
+	cleanUrls: true,
 	themeConfig: {
 		logo: {
-			light: '/assets/logo.svg',
-			dark: '/assets/logo-dark.svg'
+			light: '/logo.svg',
+			dark: '/logo-dark.svg'
 		},
 
 		// https://vitepress.dev/reference/default-theme-config
@@ -53,7 +63,7 @@ export default defineConfig({
 		],
 
 		search: {
-			provider: 'local'
+			provider: 'local',
 		},
 
 		editLink: {

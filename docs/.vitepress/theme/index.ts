@@ -5,6 +5,8 @@ import './style.postcss'
 
 import I18nPlugin from '../../lib/i18n';
 
+import LinkPreview from '../../components/LinkPreview.vue';
+
 export default {
   extends: Theme,
   Layout: () => {
@@ -15,5 +17,8 @@ export default {
   enhanceApp({ app, router, siteData }) {
     // ...
 	app.use(I18nPlugin);
+
+	app.component('LinkPreview', LinkPreview);
+
   }
 }

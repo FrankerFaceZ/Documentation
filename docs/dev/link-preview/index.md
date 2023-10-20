@@ -1,17 +1,11 @@
 <script setup>
-
 import { ref } from 'vue';
 import { Toggle } from 'flowbite-vue';
-
-import LinkPreview from '../../components/LinkPreview.vue';
-
-import { data } from './examples.data.ts';
 
 const showFull = ref(false);
 const url = ref('https://www.youtube.com/watch?v=CAL4WMpBNs0');
 
 </script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
 
 # What is Link Preview?
 
@@ -39,14 +33,7 @@ In summary, the user provides a URL like:
 	type="text"
 	class="m-px p-2 focus:border-2 focus:m-0 rounded-lg w-full border border-solid bg-transparent focus:bg-gray-200 dark:focus:bg-gray-700 border-neutral-300 hover:border-indigo-600 focus:border-indigo-600 dark:border-neutral-500 dark:hover:border-indigo-300 dark:focus:border-indigo-300"
 	v-model.lazy="url"
-	list="sampleUrls"
 />
-<datalist id="sampleUrls">
-	<option
-		v-for="url in data"
-		:value="url.url"
-	>{{ url.url }}</option>
-</datalist>
 
 
 In return, the service returns the data the client needs to build a preview like:
@@ -61,6 +48,7 @@ In return, the service returns the data the client needs to build a preview like
 
 <LinkPreview
 	:forceShort="! showFull"
+    :link="true"
 	:href="url"
 />
 

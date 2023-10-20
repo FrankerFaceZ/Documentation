@@ -1,10 +1,3 @@
-<script setup>
-
-import LinkPreview from '../../components/LinkPreview.vue';
-
-</script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
-
 # Meet Our Robot
 
 The FrankerFaceZ Link Preview service makes use of two separate bots that

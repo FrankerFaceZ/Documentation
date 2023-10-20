@@ -7,7 +7,7 @@ hero:
   text: "Documentation"
   tagline: "Know Your Emotes and Know Yourself"
   image:
-    src: /assets/logo.png
+    src: /logo.png
     alt: FrankerFaceZ
   actions:
     - theme: brand
