@@ -67,7 +67,7 @@ export default defineConfig({
 		},
 
 		editLink: {
-			pattern: 'https://github.com/frankerfacez/api-docs/edit/main/:path',
+			pattern: 'https://github.com/FrankerFaceZ/Documentation/edit/main/docs/:path',
 			text: 'Edit on GitHub'
 		},
 
