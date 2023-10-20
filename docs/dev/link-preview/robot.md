@@ -35,6 +35,34 @@ These safety checks include:
 a URL shortener designed specifically for logging IP addresses and other personal
 information from users who click the link.
 
+
+### Identifying Traffic
+
+Traffic from FFZBot can be identified through its `User-Agent`. All requests
+from FFZBot (as well as ImageGrabber) will have the string `FFZBot/` in the
+`User-Agent` string.
+
+FFZBot runs as a Cloudflare Worker, and as such traffic from FFZBot should
+be expected to come from Cloudflare's IP ranges. You can find those at:
+https://www.cloudflare.com/ips/
+
+Cloudflare adds a `CF-Worker` header to all requests made from Workers, and
+you can use this to verify the host that started the request. FFZBot's
+requests should have a header like this:
+
+```http
+CF-Worker: frankerfacez.com
+```
+
+:::warning
+This is an implementation detail on Cloudflare's behalf, and outside of our
+control. As such, it may change in the future.
+:::
+
+For more details on headers that Cloudflare may include on FFZBot's requests,
+[see their documentation](https://developers.cloudflare.com/fundamentals/reference/http-request-headers/).
+
+
 ### Open-Source
 
 FFZBot is open-source, so you can help develop it or use it for your own
@@ -90,6 +118,18 @@ ImageGrabber is currently based on the [imageproxy](https://github.com/willnorri
     :link="true"
     href="https://github.com/willnorris/imageproxy"
 />
+
+
+### Identifying Traffic
+
+ImageGrabber, unlike the rest of FFZBot, is not currently hosted on Cloudflare.
+However, like FFZBot it can be identified through its `User-Agent`. All requests
+from ImageGrabber will have the string `FFZBot/` in the `User-Agent` string.
+
+You can obtain a list of IP addresses that ImageGrabber traffic will originate
+from at this URL:
+
+https://link-service.workers.frankerfacez.com/ips
 
 
 ## Regarding `robots.txt`
