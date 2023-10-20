@@ -1,6 +1,6 @@
 <template>
 	<div class="ffz--link-tester">
-		<div>
+		<div class="relative">
 			<div class="flex items-start w-full mb-2">
 				<label for="provider" class="my-2 w-20 shrink-0">
 					Provider
@@ -94,7 +94,7 @@
 				</div>
 			</div>
 
-			<div class="flex items-start w-full mb-2">
+			<div class="flex items-start w-full mb-2 relative">
 				<div class="my-2 w-20 shrink-0"></div>
 
 				<Button
@@ -107,6 +107,31 @@
 				>
 					Refresh
 				</Button>
+
+				<div class="grow"></div>
+
+				<div class="group relative">
+					<Button
+						class="cursor-default"
+						color="alternative"
+					>Hover for Tooltip</Button>
+
+					<div class="drop-shadow-lg mt-4 w-96 z-50 pointer-events-none absolute opacity-0 transition-opacity group-hover:opacity-100 px-3 py-2 text-sm font-medium text-black bg-gray-50 dark:text-white dark:bg-gray-900 rounded-lg shadow-sm top-full right-0 border-2">
+						<LinkPreview
+							class="light"
+							:active="false"
+							:wrapper="false"
+							:href="url"
+							:allowFull="true"
+							:allowMid="true"
+							:dataLoading="loading"
+							:data="data"
+							:allowMedia="allowMedia"
+							:allowUnsafe="allowUnsafe"
+						/>
+					</div>
+				</div>
+
 			</div>
 
 		</div>

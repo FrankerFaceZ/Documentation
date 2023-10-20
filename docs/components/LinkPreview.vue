@@ -18,6 +18,10 @@ export default {
 			type: Boolean,
 			default: true
 		},
+		wrapper: {
+			type: Boolean,
+			default: true
+		},
 		data: {
 			type: Object,
 			default: null
@@ -222,6 +226,9 @@ export default {
 				class: classes
 			}, content);
 		}
+
+		if ( ! this.wrapper )
+			return content;
 
 		return h('div', {
 			class: classes
