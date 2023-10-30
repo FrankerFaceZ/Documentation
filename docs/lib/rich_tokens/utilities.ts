@@ -240,6 +240,7 @@ export function normalizeResponse(data?: any, error_image: string = 'https://cdn
                 },
                 subtitle: data.error as Token
             },
+			status: data.status ?? undefined,
             unsafe: data.unsafe ?? false,
             urls: Array.isArray(data.urls) ? data.urls : []
         };

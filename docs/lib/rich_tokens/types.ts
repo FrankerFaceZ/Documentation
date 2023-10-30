@@ -48,6 +48,7 @@ export type RichTokenDocument = {
     mid?: Token;
     full?: Token;
 
+	status?: number | null;
     unsafe: boolean;
     urls: UrlInfo[]
 };

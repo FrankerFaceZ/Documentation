@@ -13,7 +13,13 @@ export function isIconToken(token: Token | undefined): token is IconToken {
 }
 
 const BRANDS = [
-    'twitter', 'facebook', 'tiktok', 'github', 'discord', 'youtube', 'mastodon'
+	'facebook', 'twitter', 'instagram', 'tiktok', 'github', 'discord', 'youtube',
+	'slack', 'apple', 'google', 'windows', 'paypal', 'kickstarter', 'cloudflare',
+	'codepen', 'vimeo', 'teamspeak', 'pinterest', 'soundcloud', 'wikipedia-w',
+	'skype', 'etsy', 'discourse', 'amazon', 'gitlab', 'spotify', 'microsoft',
+	'facebook-messenger', 'playstation', 'twitch', 'yahoo', 'xbox',
+	'wizards-of-the-coast', 'weibo', 'weebly', 'vuejs', 'vine',
+	'unity', 'uber', 'tumblr', 'trello', 'threads', 'steam', 'mastodon'
 ];
 
 export default function IconTokenHandler<T extends RichTokenContext>(
