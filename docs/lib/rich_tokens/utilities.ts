@@ -67,10 +67,11 @@ export function getRoundClass(value: number | string | undefined, ctx: RichToken
 // m-8  ml-8  mt-8  mr-8  mb-8  mx-8  my-8
 // m-12 ml-12 mt-12 mr-12 mb-12 mx-12 my-12
 export const VALID_PADDING: Record<string, string> = {
-    small: '2', // '05', // 0.5rem
-    normal: '4', // '1', //   1rem
-    large: '8', // '2',  //   2rem
-    huge: '12', // '3'   //   3rem
+	tiny: '1',           // 0.25rem
+    small: '2', // '05', // 0.5 rem
+    normal: '4', // '1', // 1   rem
+    large: '8', // '2',  // 2   rem
+    huge: '12', // '3'   // 3   rem
 };
 
 
