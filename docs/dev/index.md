@@ -19,10 +19,9 @@ If you want more details on our Pub/Sub system for live updates, we do too. But
 it's not ready yet. If you want updates, please [join our Discord](https://discord.gg/UrAkGhT). There'll be
 an announcement when we have something.
 
-If you want more details on our client architecture, please know that I want
-to write it but I don't know when I'll get the time. I'm hoping to slowly
-rewrite the core services in TypeScript along with some other projects, but
-I have no idea when that'll be ready.
+If you want more details on our client architecture, we've started rewriting
+the client in TypeScript and documenting that. Check out the
+[Client Modules](client/modules) pages for that.
 
 Your best bet to get started with add-on development is to check out the [commented
 source code for the example add-on](https://github.com/FrankerFaceZ/Add-Ons/blob/master/src/example/index.js), and ask lots of questions in our development

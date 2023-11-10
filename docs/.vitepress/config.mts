@@ -41,6 +41,7 @@ export default defineConfig({
 				link: '/dev/',
 				items: [
 					{ text: 'Developers', link: '/dev/'},
+					{ text: 'Client Modules', link: '/dev/client/modules' },
 					{ text: 'API Documentation', link: 'https://api.frankerfacez.com/docs/' }
 				]
 			},

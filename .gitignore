@@ -6,3 +6,4 @@ cache
 stats.json
 .idea
 *.iml
+.nojekyll
