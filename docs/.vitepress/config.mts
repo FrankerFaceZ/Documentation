@@ -13,6 +13,7 @@ export default defineConfig({
 			}
 		]
 	],
+	ignoreDeadLinks: true,
 	cleanUrls: true,
 	themeConfig: {
 		logo: {
